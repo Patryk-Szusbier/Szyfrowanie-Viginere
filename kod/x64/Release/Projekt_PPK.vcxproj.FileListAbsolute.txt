@@ -1,0 +1,2 @@
+E:\Git-repo\Projekt\Szyfrowanie\x64\Release\Projekt_PPK.exe
+E:\Git-repo\Projekt\kod\x64\Release\Projekt_PPK.exe
