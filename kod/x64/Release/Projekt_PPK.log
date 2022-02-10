@@ -1,8 +1,7 @@
-﻿  function.cpp
-  Projekt_PPK.cpp
+﻿  Projekt_PPK.cpp
   Trwa generowanie kodu
-  188 of 196 functions (95.9%) were compiled, the rest were copied from previous compilation.
+  0 of 196 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
-  Projekt_PPK.vcxproj -> E:\Git-repo\Projekt\kod\x64\Release\Projekt_PPK.exe
+  Projekt_PPK.vcxproj -> E:\Szyfrowanie\kod\x64\Release\Projekt_PPK.exe

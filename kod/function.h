@@ -29,7 +29,7 @@ void Mapping_Key(string line, string key, string& keyMap);
 /**
 Funkcja uzupełniająca tablice szyfrowania Vigenerate.
 */
-void createTable();
+char** Create_Table();
 
 /** Funkcja szyfrująca podany tekst według określonego klucza.
  * @param line ciąg znaków zawierający wiadomość do szyfrowania

@@ -8,7 +8,7 @@ const int spacebar = 32;
 const int number_A = 65;
 const int number_Z = 90;
 int number_of_letter = 26;
-char table[26][26];
+
 
 void Arguments(string& mode, string& file, string& key_file, string& file_target, int number, char **argv)
 {
@@ -75,12 +75,14 @@ void Mapping_Key(string line, string key, string&keyMap)
 }
 
 
-void Create_Table()
+char** Create_Table()
 {
+	char** table = new char* [26];
 	int z = 65;
 	char temp_storage;
 	for (int i = 0; i < number_of_letter; i++)
 	{
+		table[i] = new char[26];
 		for (int j = 0; j < number_of_letter; j++)
 		{
 			if (i == 0) {
@@ -98,18 +100,19 @@ void Create_Table()
 
 		}
 	}
+	return table;
 }
 
 void Encryption(string text, string key, string&results)
 {
-	Create_Table();
+	char** table = Create_Table();
 
 	for (int i = 0; i < text.length(); i++)
 	{
-		if (text[i] == spacebar && key[i] == spacebar)
+		if ((int)text[i] < number_A || (int)text[i]>number_Z)
 		{
-			results += " ";
-		}
+			results += text[i];
+		} 
 		else
 		{
 			int x = (int)text[i] - number_A;
@@ -151,9 +154,9 @@ void Decryption(string text, string key, string&results)
 {
 	for (int i = 0; i < text.length(); i++)
 	{
-		if (text[i] == spacebar && key[i] == spacebar)
+		if ((int)text[i] < number_A || (int)text[i]>number_Z)
 		{
-			results += " ";
+			results += text[i];
 		}
 		else
 		{

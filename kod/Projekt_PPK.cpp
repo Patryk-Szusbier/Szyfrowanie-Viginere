@@ -27,55 +27,49 @@ int main(int argc, char **argv)
     ifstream file(file_public);
     if (mode =="en")
     {
+        ofstream wynik(target);
         while (file.peek() != EOF)
         {
-            getline(file, temp);
-            for(int i = 0; temp[i] != '\0';i++)
-            {
-                line.push_back(temp[i]);
-            }
-            line.push_back(' ');
+            
+            code = "";
+            result = "";
+            getline(file, line);
+            
+            //Zamiana tekstu na duze litery
+            Upperletter(line);
+            //Dopasowanie dlugosci klucza do tekstu
+            Mapping_Key(line, basic_key, code);
+            //Szyfrowanie
+            Encryption(line, code, result);
+            wynik << result;
+            wynik << endl;
         }//end of while
-
-        //Zamiana tekstu na duze litery
-        Upperletter(line);
-
-        //Dopasowanie dlugosci klucza do tekstu
-        Mapping_Key(line, basic_key, code);
-
-        //Szyfrowanie
-        Encryption(line, code, result);
+        wynik.close();
 
     }//end of if
     else if (mode == "de")
     {
+        ofstream wynik(target);
         while (file.peek() != EOF)
         {
-            getline(file, temp);
-            for(int i = 0; temp[i] != '\0';i++)
-            {
-                line.push_back(temp[i]);
-            }
-            line.push_back(' ');
+            code = "";
+            result = "";
+            getline(file, line);
+
+            //Zamiana tekstu na duze litery
+            Upperletter(line);
+            //Dopasowanie dlugosci klucza do tekstu
+            Mapping_Key(line, basic_key, code);
+            //Szyfrowanie
+            Decryption(line, code, result);
+
+            wynik << result;
+            wynik << endl;
         }//end of while
+        wynik.close();
 
-        //Zamiana tekstu na duze litery
-        Upperletter(line);
-
-        //Dopasowanie dlugosci klucza do tekstu
-        Mapping_Key(line, basic_key, code);
-
-        //Deszyfrowanie
-        Decryption(line, code, result);
     }
     file.close();
-
-    //Zapis wyniku do pliku
-    ofstream wynik(target);
-
-    wynik<<result;
-
-    wynik.close();
 
     cout << endl;
 }
